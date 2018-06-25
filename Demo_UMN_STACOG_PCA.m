@@ -21,13 +21,7 @@ Tw_TstData = COEFF(:,1:100)';
 feaMatPCA_TstData = Tw*test_features; 
 
 test_samples=size(test_features,2);
- %score_anomaly_cityblock = zeros(test_samples,1);
- score_anomaly_correlation=zeros(test_samples,1);
-for i=1:test_samples
-    %score_anomaly_cityblock(i)= min(pdist2(test_features(:,i)',medoids,'cityblock'));
-    score_anomaly_correlation(i) =min(pdist2(feaMatPCA_TstData(:,i)',medoids,'correlation'));
-end
-
+score_anomaly_euclidean =min(pdist2(feaMatPCA_TstData',medoids,'euclidean'),[],2);
 TimeperTest = toc;
  Averaged_TimeperTest = toc/test_samples;
 
