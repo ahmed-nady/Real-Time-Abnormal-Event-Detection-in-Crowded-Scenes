@@ -1,0 +1,30 @@
+Linux_i386_ARCH             := glx
+Linux_i686_ARCH             := glx
+Linux_x86_64_ARCH           := g64
+Linux_unknown_ARCH          := glx
+
+UNAME            := $(shell uname -sm)
+ARCH             := $($(shell echo "$(UNAME)" | tr \  _)_ARCH)
+
+MEX              := mex
+MEX_OPTION       :=-cxx -v -I. -O -largeArrayDims
+
+glx_MEX_SUFFIX   := mexglx
+g64_MEX_SUFFIX   := mexa64
+MEX_SUFFIX       := $($(ARCH)_MEX_SUFFIX)
+
+src := stacog_mex.cpp
+
+EXE := $(src:.cpp=.$(MEX_SUFFIX))
+
+all:${EXE}
+
+.SUFFIXES: .$(MEX_SUFFIX) .cpp
+
+.cpp.$(MEX_SUFFIX):
+	$(MEX) $(MEX_OPTION) $< -o $@
+	mkdir -p $(MEX_SUFFIX)
+	mv $@ ./$(MEX_SUFFIX)/
+
+clean:
+	rm -f ./$(MEX_SUFFIX)/*
