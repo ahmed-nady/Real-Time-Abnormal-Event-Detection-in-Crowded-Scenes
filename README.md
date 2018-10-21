@@ -8,3 +8,10 @@ The proposed anomaly detection method was tested on benchmark dataset: UMN datas
 
 References
 [1]	T. Kobayashi and N. Otsu, “Motion recognition using local auto-correlation of space–time gradients,” Pattern Recognition Letters, vol. 33, no. 9, pp. 1188–1195, 2012.
+
+Citation Details
+----------------------
+  
+Please cite the following paper when using this source code:
+A. Nady, A. Atia, A. E. Aboutabl, “Real-Time Abnormal Event Detection in CrowdedScenes”, Journal of Theoretical and Applied Information Technology.96(18):6064-6075, September2018.
+https://www.researchgate.net/publication/327972246_REAL-TIME_ABNORMAL_EVENT_DETECTION_IN_CROWDED_SCENES
